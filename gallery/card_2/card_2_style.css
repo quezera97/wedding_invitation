@@ -1,0 +1,132 @@
+@media print {
+    /* webkit is for safari and chrome */
+    /* moz is for mozilla webkit */
+    * {
+        -webkit-print-color-adjust: exact;
+        -moz-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    /* remove page number in chrome & safari */
+    body::before {
+        content: "";
+        display: block;
+        height: 0;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        /* page break after each card */
+        page-break-after: always;
+    }
+
+    /* remove data and URL in print */
+    @page {
+        size: auto;
+        margin: 0;
+    }
+
+    /* remove additional info in browser */
+    @page :first {
+        margin-top: 0;
+    }
+}
+
+html, body {
+    margin: 0;
+}
+
+.card {
+    width: 37.5em;
+    height: 53.2em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background: white;
+    border: 1px solid black;
+}
+
+.background {
+    background: url('../assets/background_image/2.png') no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    font-family: Baskerville;
+    color: #575557;
+    position: relative;
+    text-align: center;
+}
+
+.description {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    height: 50%;
+    width: 50%;
+}
+
+.first-description, .second-descripton {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.name-bridegroom, .name-bride {
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0;
+}
+
+.divider {
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 5em;
+    background-color: #575557;
+    top: 50%;
+  }
+
+.divider::before {
+    left: 2.5em;
+}
+
+.divider::after {
+    right: 2.5em;
+}
+
+.date-container {
+    max-width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.month, .year {
+    border-top: 3px solid #575557; 
+    border-bottom: 3px solid #575557;
+}
+
+.date {
+    font-size: 3em;
+}
+
+.day {
+    letter-spacing: 4.5px;
+}
+
+.address {
+    top: 100px;
+    position: relative;
+    font-size: 1.1em;
+}
